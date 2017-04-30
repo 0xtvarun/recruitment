@@ -21,14 +21,16 @@ io.on('connection', function (socket) {
 	console.log("new connection");	
 	console.log(ipaddr);
 
-	if(!alreadyExists(socket.handshake.remoteAddress)){
+	console.log(socket.conn.remoteAddress);
+
+	if(!alreadyExists(socket.conn.remoteAddress)){
 
 		//Add the new IP to the global IP array
-		ipaddr.push(socket.handshake.remoteAddress);
+		ipaddr.push(socket.conn.remoteAddress);
 		console.log(ipaddr);
 		
 		//Broadcast the single new IP address to all but the sender
-		socket.broadcast.emit('single-ip', { ipaddr : socket.handshake.remoteAddress});
+		socket.broadcast.emit('single-ip', { ipaddr : socket.conn.remoteAddress});
 
 		//Send the entire array to the sender
 		socket.emit('array', { array: ipaddr });
@@ -38,11 +40,11 @@ io.on('connection', function (socket) {
 	//remove IP from the global IP array
 	//TODO: broadcast the IP address to be removed
 	socket.on('disconnect', function(){
-		console.log("disconnect: " + socket.handshake.remoteAddress);
-		if(alreadyExists(socket.handshake.remoteAddress)){
+		console.log("disconnect: " + socket.conn.remoteAddress);
+		if(alreadyExists(socket.conn.remoteAddress)){
 			
-			removeItem(socket.handshake.remoteAddress);
-			socket.broadcast.emit('remove-single', {ipaddr: socket.handshake.remoteAddress});
+			removeItem(socket.conn.remoteAddress);
+			socket.broadcast.emit('remove-single', {ipaddr: socket.conn.remoteAddress});
 
 		}
 	})
