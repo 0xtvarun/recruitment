@@ -16,6 +16,9 @@
     "url": "https://github.com/0xtvarun/recruitment/issues"
   },
   "homepage": "https://github.com/0xtvarun/recruitment#readme",
+  "engine": {
+    "node": "4.2.6"
+  },
   "dependencies": {
     "express": "^4.15.2",
     "socket.io": "^1.7.3"
