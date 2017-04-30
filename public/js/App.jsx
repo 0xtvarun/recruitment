@@ -37,7 +37,7 @@ class App extends React.Component{
 		//On disconnecting of a client
 		socket.on('remove-single', function(data){
 			var ip = data.ipaddr;
-			var newarray = this.state.ips;
+			var newarray = instance.state.ips;
 			var index = newarray.indexOf(ip);
 			newarray.splice(index, 1);
 			instance.setState((state) => ({
