@@ -19,5 +19,8 @@
   "dependencies": {
     "express": "^4.15.2",
     "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.24.1"
   }
 }

@@ -3,8 +3,9 @@
 	<title>Nodejs app to Display all ip address</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- REACT JS AND REACT DOM GO HERE -->
-	<script src="https://unpkg.com/react@15/dist/react.min.js"></script>
-	<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+	<script src="/js/react.min.js"></script>
+	<script src="/js/react-dom.min.js"></script>
+	<!-- <script src="/js/browser.min.js"></script> -->
 </head>
 <body>
 	<div class="row">
@@ -22,26 +23,7 @@
 		<div class="col-sm-3 col-md-3"></div>
 	</div>
 	<script src="/js/socket.io.min.js"></script>
-	<script>
-		var socket = io.connect("http://localhost:3000");
-		socket.on('array', function(data){
-			for (var i = 0; i < data.array.length; i++) {
-				renderElement(data.array[i]);
-			}
-		});
-
-		function renderElement(ip){
-			var element = React.createElement(
-				'tr',
-				null,
-				React.createElement(
-					'td',
-					null,
-					ip
-				)
-			);
-			ReactDOM.render(element, document.getElementById('root'));
-		}
-	</script>
+	<script src="/js/App.js"></script>
+	<!-- <script src="/js/App.jsx" type="text/babel"></script> -->
 </body>
 </html>
