@@ -36,11 +36,14 @@ class App extends React.Component{
 
 		//On disconnecting of a client
 		socket.on('remove-single', function(data){
+			var ip = data.ipaddr;
+			var newarray = this.state.ips;
+			var index = newarray.indexOf(ip);
+			newarray.splice(index, 1);
 			instance.setState((state) => ({
-				ips: state.ips.filter(function(ip){
-					return ip.next != data.removed;
-				})
-			}));
+				ips: newarray
+			}))
+			instance.forceUpdate();
 		});
 	}
 
