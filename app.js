@@ -23,6 +23,8 @@ io.on('connection', function (socket) {
 
 	console.log(socket.request.connection.remoteAddress);
 
+	// socket.request.connection._peername
+	
 	if(!alreadyExists(socket.request.connection.remoteAddress)){
 
 		//Add the new IP to the global IP array
