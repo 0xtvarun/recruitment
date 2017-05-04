@@ -1,4 +1,5 @@
-var socket = io.connect("https://floating-hamlet-25041.herokuapp.com/");
+// var socket = io.connect("https://floating-hamlet-25041.herokuapp.com/");
+var socket = io.connect("http://192.168.1.5:3000");
 
 class App extends React.Component{
 
@@ -22,12 +23,12 @@ class App extends React.Component{
 
 		//On getting an array of IP address
 		socket.on('array', function(data){
-			
+
 			var newips = instance.state.ips = [];
-			
+
 			data.array.forEach(function(ip){
 				instance.state.ips.push({id: new Date().getTime(), ip: ip});
-			});	
+			});
 
 			instance.setState((state) => ({
 				ips: newips
@@ -40,6 +41,7 @@ class App extends React.Component{
 			var newarray = instance.state.ips;
 			var index = newarray.indexOf(ip);
 			newarray.splice(index, 1);
+			console.log(newarray);
 			instance.setState((state) => ({
 				ips: newarray
 			}))
@@ -59,10 +61,10 @@ class App extends React.Component{
 class SingleElement extends React.Component {
 	render(){
 		return(
-			<div>	
+			<div>
 			{this.props.ips.map( ip => (
 				<tr>
-					<td key={ip.id}>{ip.ip}</td> 
+					<td key={ip.id}>{ip.ip}</td>
 				</tr>
 			))}
 			</div>

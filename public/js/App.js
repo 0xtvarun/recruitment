@@ -1,5 +1,5 @@
-var socket = io.connect("https://floating-hamlet-25041.herokuapp.com/");
-// var socket = io.connect("http://localhost:3000");
+// var socket = io.connect("https://floating-hamlet-25041.herokuapp.com/");
+var socket = io.connect("http://192.168.1.5:3000");
 
 class App extends React.Component {
 
@@ -38,9 +38,10 @@ class App extends React.Component {
 		//On disconnecting of a client
 		socket.on('remove-single', function (data) {
 			var ip = data.ipaddr;
-			var newarray = this.state.ips;
+			var newarray = instance.state.ips;
 			var index = newarray.indexOf(ip);
 			newarray.splice(index, 1);
+			console.log(newarray);
 			instance.setState(state => ({
 				ips: newarray
 			}));

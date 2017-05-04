@@ -4,7 +4,8 @@
   "description": "Shows a list of IP addresses viewing the page",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "react": "babel --plugins transform-react-jsx ./public/js/App.jsx > ./public/js/App.js"
   },
   "repository": {
     "type": "git",
