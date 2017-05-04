@@ -1,5 +1,4 @@
-var socket = io.connect("https://floating-hamlet-25041.herokuapp.com/");
-// var socket = io.connect("http://192.168.1.5:3000");
+var socket = io.connect("http://192.168.1.5:3000");
 
 class App extends React.Component{
 

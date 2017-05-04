@@ -2,6 +2,16 @@
 
 Shows a list of IP addresses viewing the page
 
+## How to run the app
+
+1. Change the IP address in the `./public/js/App.jsx` file to the IP of the machine on which the app is to be hosted
+2. Run `npm install`
+3. Run `npm run react`
+4. Now run `npm start`
+5. Navigate to the IP address for the app
+
+
+
 ## Requirements
 
 Create a single-page web app that:
